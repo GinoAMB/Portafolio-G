@@ -81,7 +81,7 @@ export const projects: Project[] = [
       "Integración directa con WhatsApp para pedidos rapidos",
     ],
     github: ["https://github.com/devlab921-prog/Midnight_Snacks"],
-    demo: "https://midnightsnacks.vercel.app/",
+    demo: "https://midnight-snacks.vercel.app/",
     image: "/projects/delivery-noche.webp",
     variant: "reverse",
   },
