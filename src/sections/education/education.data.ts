@@ -21,20 +21,24 @@ export const certifications: Certification[] = [
     title: "Curso de Java Spring",
     institution: "Platzi",
     year: "2025",
+    pdf: "/certifications/diploma-java-spring-boot.pdf",
   },
   {
     title: "Scrum Fundamentals Certified (SFC™)",
     institution: "SCRUMstudy",
     year: "2025",
+    pdf: "/certifications/ScrumFundamentalsCertified-GinoAndersonMorenoBejarano-1130858.pdf",
   },
   {
     title: "Curso de Java",
     institution: "Platzi",
     year: "2025",
+    pdf: "/certifications/diploma-java.pdf",
   },
   {
     title: "Introducción a la Terminal y Líneas de Comando",
     institution: "Platzi",
     year: "2025",
+    pdf: "/certifications/diploma-terminal.pdf",
   },
 ];

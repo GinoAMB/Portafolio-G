@@ -1,6 +1,16 @@
+import { useState } from "react";
+import { FaRegFilePdf } from "react-icons/fa";
+
 import { education, certifications, softSkills } from "./education.data";
+import CertificateModal from "./modals/CertificateModal";
 
 function Education() {
+  const [selectedCertificate, setSelectedCertificate] =
+    useState<{
+      title: string;
+      pdf: string;
+    } | null>(null);
+
   return (
     <section
       id="formacion"
@@ -96,10 +106,10 @@ function Education() {
                 {certifications.map((item) => (
                   <article
                     key={`${item.title}-${item.institution}`}
-                    className="min-w-0 rounded-xl border border-gray-200 bg-gray-50 p-4 transition duration-300 hover:-translate-y-1 hover:border-green-500/30 hover:shadow-lg hover:shadow-gray-200/50"
+                    className="min-w-0 rounded-xl border border-gray-200 bg-gray-50 p-4 transition duration-300 hover:-translate-y-1 hover:border-blue-500/30 hover:shadow-lg hover:shadow-gray-200/50"
                   >
                     <div className="flex min-w-0 items-start gap-4">
-                      <div className="flex min-w-0 flex-1 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
+                      <div className="flex min-w-0 flex-1 flex-col gap-3 sm:flex-row sm:items-center sm:justify-between sm:gap-4">
                         {/* Información */}
                         <div className="min-w-0">
                           <h3 className="break-words text-lg font-bold text-gray-900 sm:text-xl">
@@ -111,10 +121,31 @@ function Education() {
                           </p>
                         </div>
 
-                        {/* Año */}
-                        <span className="shrink-0 text-xs font-semibold text-gray-500">
-                          {item.year}
-                        </span>
+                        {/* Año + botón */}
+                        <div className="flex shrink-0 items-center gap-3">
+                          <span className="text-xs font-semibold text-gray-500">
+                            {item.year}
+                          </span>
+
+                          <button
+                            type="button"
+                            onClick={() =>
+                              setSelectedCertificate({
+                                title: item.title,
+                                pdf: item.pdf,
+                              })
+                            }
+                            className="flex items-center gap-2 cursor-pointer rounded-lg border border-blue-500 bg-blue-50 px-3 py-2 text-xs font-semibold text-blue-600 transition duration-300 hover:bg-blue-500 hover:text-white"
+                          >
+                            <FaRegFilePdf className="text-sm" />
+
+                            <span className="hidden sm:inline">
+                              Ver certificado
+                            </span>
+
+                            <span className="sm:hidden">Ver PDF</span>
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </article>
@@ -124,6 +155,15 @@ function Education() {
           </div>
         </div>
       </div>
+
+      {/* Certificate Modal */}
+      {selectedCertificate && (
+        <CertificateModal
+          title={selectedCertificate.title}
+          pdf={selectedCertificate.pdf}
+          onClose={() => setSelectedCertificate(null)}
+        />
+      )}
     </section>
   );
 }
