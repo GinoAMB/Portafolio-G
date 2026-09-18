@@ -56,8 +56,8 @@ function Navbar() {
 
         {/* Desktop Descargar CV */}
         <a
-          href="/CV_Gino_Moreno_Bejarano.pdf"
-          download="Gino-Moreno-Bejarano-CV.pdf"
+          href="/CV_Gino_Moreno_Bejarano.docx.pdf"
+          download="Gino-Moreno-Bejarano-CV.docx.pdf"
           className="hidden items-center gap-2 rounded-full bg-black px-5 py-2.5 text-sm font-semibold text-white transition-all hover:bg-gray-800 md:flex"
         >
           Descargar CV
@@ -92,8 +92,8 @@ function Navbar() {
 
             {/* Mobile Descargar CV */}
             <a
-              href="/CV_Gino_Moreno_Bejarano.pdf"
-              download="Gino-Moreno-Bejarano-CV.pdf"
+              href="/CV_Gino_Moreno_Bejarano.docx.pdf"
+              download="Gino-Moreno-Bejarano-CV.docx.pdf"
               onClick={handleLinkClick}
               className="mt-3 flex items-center justify-center gap-2 rounded-lg bg-black px-5 py-3 text-sm font-semibold text-white hover:bg-gray-800"
             >

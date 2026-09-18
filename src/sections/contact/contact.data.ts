@@ -13,7 +13,7 @@ export const contactInfo: ContactItem[] = [
     },
     {
         label: "GitHub",
-        value: "github.com/TU-USUARIO",
-        href: "https://github.com/TU-USUARIO",
+        value: "github.com/GinoAMB",
+        href: "https://github.com/GinoAMB",
     },
 ];
