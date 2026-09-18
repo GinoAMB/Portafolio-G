@@ -58,6 +58,12 @@ function Projects() {
         <div className="min-w-0 space-y-8 sm:space-y-10">
           {projects.map(renderProject)}
         </div>
+
+        <div className="flex justify-end border-t border-white/5 pt-4">
+          <span className="font-mono text-[10px] tracking-widest text-white/10">
+            INPUT // ← →
+          </span>
+        </div>
       </div>
     </section>
   );

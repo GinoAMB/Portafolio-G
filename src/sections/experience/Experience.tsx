@@ -146,6 +146,11 @@ function Experience() {
                   </div>
                 ))}
               </div>
+              <div className="mt-6 border-t border-gray-100 pt-4">
+                <span className="font-mono text-[10px] tracking-widest text-gray-200">
+                  INPUT // ↓ ↓
+                </span>
+              </div>
             </div>
           </div>
         </div>

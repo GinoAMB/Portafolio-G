@@ -4,6 +4,7 @@ import CustomCursor from "./components/ui/CustomCursor";
 import useDocumentTitle from "./hooks/useDocumentTitle";
 
 import ScrollProgress from "./components/ui/ScrollProgress";
+import DeveloperMode from "./components/ui/DeveloperMode";
 
 import Hero from "./sections/hero/Hero";
 import About from "./sections/about/About";
@@ -20,6 +21,7 @@ function App() {
     <>
       <CustomCursor />
       <ScrollProgress />
+      <DeveloperMode />
       <Navbar />
 
       <main className="relative bg-white">

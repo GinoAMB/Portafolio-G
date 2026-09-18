@@ -139,6 +139,11 @@ function Contact() {
                                         funcionales, mantenibles y orientadas a
                                         resolver problemas reales.”
                                     </p>
+                                    <div className="mt-5 border-t border-white/10 pt-4">
+                                        <span className="font-mono text-[10px] tracking-widest text-white/20">
+                                            INPUT // B A
+                                        </span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

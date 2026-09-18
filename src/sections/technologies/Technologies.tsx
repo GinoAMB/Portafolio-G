@@ -61,6 +61,12 @@ function Technologies() {
                         </article>
                     ))}
                 </div>
+
+                <div className="mt-6 flex justify-end">
+                    <span className="font-mono text-[10px] tracking-widest text-gray-300">
+                        INPUT // ← →
+                    </span>
+                </div>
             </div>
         </section>
     );

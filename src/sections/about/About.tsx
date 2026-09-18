@@ -37,6 +37,11 @@ function About() {
                 responsabilidades (SoC) y la resolución directa de
                 requerimientos de negocio sobre la complejidad innecesaria.
               </p>
+              <div className="mt-5 border-t border-gray-200 pt-4">
+                <span className="font-mono text-[10px] tracking-widest text-gray-300">
+                  INPUT // ↑ ↑
+                </span>
+              </div>
             </div>
           </div>
 
