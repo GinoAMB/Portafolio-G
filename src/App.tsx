@@ -3,6 +3,8 @@ import GridBackground from "./components/ui/GridBackground";
 import CustomCursor from "./components/ui/CustomCursor";
 import useDocumentTitle from "./hooks/useDocumentTitle";
 
+import ScrollProgress from "./components/ui/ScrollProgress";
+
 import Hero from "./sections/hero/Hero";
 import About from "./sections/about/About";
 import Experience from "./sections/experience/Experience";
@@ -17,6 +19,7 @@ function App() {
   return (
     <>
       <CustomCursor />
+      <ScrollProgress />
       <Navbar />
 
       <main className="relative bg-white">
