@@ -5,6 +5,17 @@ html {
   scroll-padding-top: 30px;
 }
 
+/* Ocultar cursor nativo */
+html,
+body,
+button,
+a,
+input,
+textarea,
+select {
+  cursor: none;
+}
+
 @theme {
   --font-syne: "Syne", sans-serif;
 }

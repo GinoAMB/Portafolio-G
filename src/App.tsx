@@ -1,5 +1,6 @@
 import Navbar from "./components/layout/Navbar";
 import GridBackground from "./components/ui/GridBackground";
+import CustomCursor from "./components/ui/CustomCursor";
 
 import Hero from "./sections/hero/Hero";
 import About from "./sections/about/About";
@@ -13,6 +14,7 @@ import Footer from "./components/layout/Footer";
 function App() {
   return (
     <>
+      <CustomCursor />
       <Navbar />
 
       <main className="relative bg-white">
