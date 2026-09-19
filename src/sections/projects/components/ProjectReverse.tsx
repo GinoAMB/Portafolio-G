@@ -2,11 +2,17 @@ import { FaCheck, FaGithub, FaExternalLinkAlt } from "react-icons/fa";
 
 import type { Project } from "../projects.types";
 
+import { useLanguage } from "../../../context/LanguageContext";
+import { translations } from "../../../locales";
+
 interface ProjectReverseProps {
   project: Project;
 }
 
 function ProjectReverse({ project }: ProjectReverseProps) {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <article className="group grid overflow-hidden md:grid-cols-2">
       {/* Imagen */}
@@ -14,7 +20,7 @@ function ProjectReverse({ project }: ProjectReverseProps) {
         <img
           src={project.image}
           alt={project.title}
-          className="h-auto max-w-full object-contain rounded-lg transition duration-500 group-hover:scale-[1.03]"
+          className="h-auto max-w-full rounded-lg object-contain transition duration-500 group-hover:scale-[1.03]"
         />
       </div>
 
@@ -22,7 +28,7 @@ function ProjectReverse({ project }: ProjectReverseProps) {
       <div className="order-2 flex min-w-0 flex-col justify-center p-5 sm:p-6 md:p-10">
         <div className="flex flex-wrap items-center gap-3">
           <span className="text-xs font-medium uppercase tracking-wider text-emerald-400">
-            PROYECTO 03
+            {t.projects.labels.project03}
           </span>
 
           <span className="inline-flex rounded-md border border-amber-400/20 bg-amber-500/10 px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-amber-400 backdrop-blur-sm">
@@ -50,7 +56,9 @@ function ProjectReverse({ project }: ProjectReverseProps) {
               >
                 <FaCheck className="mt-1.5 shrink-0 text-xs text-emerald-400" />
 
-                <span className="min-w-0 break-words">{capability}</span>
+                <span className="min-w-0 break-words">
+                  {capability}
+                </span>
               </li>
             ))}
           </ul>
@@ -79,7 +87,7 @@ function ProjectReverse({ project }: ProjectReverseProps) {
               className="inline-flex items-center gap-2 rounded-md bg-gray-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-gray-600"
             >
               <FaGithub />
-              GitHub
+              {t.projects.labels.github}
             </a>
           ))}
 
@@ -91,7 +99,7 @@ function ProjectReverse({ project }: ProjectReverseProps) {
               className="inline-flex items-center gap-2 rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-500"
             >
               <FaExternalLinkAlt />
-              Ver Demo
+              {t.projects.labels.demo}
             </a>
           )}
         </div>

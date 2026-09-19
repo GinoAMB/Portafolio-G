@@ -1,7 +1,16 @@
 import { FaGithub, FaLinkedin, FaWhatsapp } from "react-icons/fa";
-import { contactInfo } from "./contact.data";
+
+import { getContactInfo } from "./contact.data";
+
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../locales";
 
 function Contact() {
+    const { language } = useLanguage();
+    const t = translations[language];
+
+    const contactInfo = getContactInfo(t);
+
     return (
         <section
             id="contacto"
@@ -16,7 +25,7 @@ function Contact() {
                     </span>
 
                     <span className="text-xs font-semibold uppercase leading-relaxed tracking-[0.12em] text-white/70">
-                        // 07. CONEXIÓN DIRECTA
+            // {t.contact.sectionNumber} {t.contact.sectionLabel}
                     </span>
                 </div>
 
@@ -25,16 +34,15 @@ function Contact() {
                     {/* Left */}
                     <div className="min-w-0">
                         <h2 className="max-w-2xl font-syne text-2xl font-extrabold leading-[1.05] tracking-tight text-white sm:text-5xl lg:text-6xl">
-                            ¿HABLAMOS?
+                            {t.contact.title}
                         </h2>
 
                         <p className="mt-5 max-w-2xl text-base leading-7 text-white/60 sm:mt-6 sm:text-lg sm:leading-8">
-                            Estoy interesado en oportunidades como desarrollador{" "}
+                            {t.contact.descriptionStart}{" "}
                             <strong className="font-semibold text-white">
-                                Full Stack Junior
+                                {t.contact.descriptionRole}
                             </strong>{" "}
-                            y en participar en proyectos donde pueda aportar valor,
-                            aprender y seguir creciendo profesionalmente.
+                            {t.contact.descriptionEnd}
                         </p>
 
                         {/* Email */}
@@ -47,41 +55,39 @@ function Contact() {
 
                         {/* Social links */}
                         <div className="mt-8 grid grid-cols-1 gap-3 sm:mt-10 sm:grid-cols-3">
-                            {contactInfo
-                                .filter((item) => item.label !== "Email")
-                                .map((item) => (
-                                    <a
-                                        key={item.label}
-                                        href={item.href}
-                                        target="_blank"
-                                        rel="noopener noreferrer"
-                                        className="group flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 transition duration-300 hover:-translate-y-1 hover:border-green-500/30 hover:bg-white/10"
-                                    >
-                                        <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-white transition duration-300 group-hover:bg-blue-500 group-hover:text-white">
-                                            {item.label === "WhatsApp" && (
-                                                <FaWhatsapp size={17} />
-                                            )}
+                            {contactInfo.map((item) => (
+                                <a
+                                    key={item.label}
+                                    href={item.href}
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="group flex min-w-0 items-center gap-3 rounded-xl border border-white/10 bg-white/5 p-4 transition duration-300 hover:-translate-y-1 hover:border-green-500/30 hover:bg-white/10"
+                                >
+                                    <div className="flex h-9 w-9 shrink-0 items-center justify-center rounded-lg bg-white/10 text-white transition duration-300 group-hover:bg-blue-500 group-hover:text-white">
+                                        {item.label === t.contact.social.whatsapp && (
+                                            <FaWhatsapp size={17} />
+                                        )}
 
-                                            {item.label === "LinkedIn" && (
-                                                <FaLinkedin size={17} />
-                                            )}
+                                        {item.label === t.contact.social.linkedin && (
+                                            <FaLinkedin size={17} />
+                                        )}
 
-                                            {item.label === "GitHub" && (
-                                                <FaGithub size={17} />
-                                            )}
-                                        </div>
+                                        {item.label === t.contact.social.github && (
+                                            <FaGithub size={17} />
+                                        )}
+                                    </div>
 
-                                        <div className="min-w-0">
-                                            <p className="text-xs font-semibold uppercase tracking-[0.1em] text-white/40">
-                                                {item.label}
-                                            </p>
+                                    <div className="min-w-0">
+                                        <p className="text-xs font-semibold uppercase tracking-[0.1em] text-white/40">
+                                            {item.label}
+                                        </p>
 
-                                            <p className="mt-1 truncate text-sm font-medium text-white/70 group-hover:text-white">
-                                                {item.value}
-                                            </p>
-                                        </div>
-                                    </a>
-                                ))}
+                                        <p className="mt-1 truncate text-sm font-medium text-white/70 group-hover:text-white">
+                                            {item.value}
+                                        </p>
+                                    </div>
+                                </a>
+                            ))}
                         </div>
                     </div>
 
@@ -90,7 +96,7 @@ function Contact() {
                         {/* Developer card */}
                         <div className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-7">
                             <p className="text-xs font-semibold uppercase tracking-[0.15em] text-green-500">
-                                DESARROLLADOR
+                                {t.contact.developerLabel}
                             </p>
 
                             <h3 className="mt-4 break-words font-syne text-2xl font-bold leading-tight text-white sm:text-3xl">
@@ -98,50 +104,52 @@ function Contact() {
                             </h3>
 
                             <p className="mt-2 text-sm font-medium text-white/50">
-                                Full Stack Junior
+                                {t.contact.role}
                             </p>
 
                             <div className="mt-6 space-y-4 border-t border-white/10 pt-5">
+                                {/* Location */}
                                 <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                                     <span className="text-sm text-white/40">
-                                        Ubicación
+                                        {t.contact.details.location}
                                     </span>
 
                                     <span className="text-sm font-medium text-white/80 sm:text-right">
-                                        Chimbote, Perú
+                                        {t.contact.details.locationValue}
                                     </span>
                                 </div>
 
+                                {/* Availability */}
                                 <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                                     <span className="text-sm text-white/40">
-                                        Disponibilidad
+                                        {t.contact.details.availability}
                                     </span>
 
                                     <span className="text-sm font-medium text-green-400 sm:text-right">
-                                        Inmediata
+                                        {t.contact.details.availabilityValue}
                                     </span>
                                 </div>
 
+                                {/* Specialty */}
                                 <div className="flex flex-col gap-1 sm:flex-row sm:items-center sm:justify-between">
                                     <span className="text-sm text-white/40">
-                                        Especialidad
+                                        {t.contact.details.specialty}
                                     </span>
 
                                     <span className="break-words text-sm font-medium text-white/80 sm:text-right">
-                                        Java · Spring · React · Node
+                                        {t.contact.details.specialtyValue}
                                     </span>
                                 </div>
 
                                 {/* Description card */}
                                 <div className="rounded-2xl border border-white/10 bg-white/5 p-5 sm:p-7">
                                     <p className="font-syne text-base font-semibold leading-7 text-white/80 sm:text-lg sm:leading-8">
-                                        “Enfocado en construir aplicaciones web
-                                        funcionales, mantenibles y orientadas a
-                                        resolver problemas reales.”
+                                        “{t.contact.quote}”
                                     </p>
+
                                     <div className="mt-5 border-t border-white/10 pt-4">
                                         <span className="font-mono text-[10px] tracking-widest text-white/20">
-                                            INPUT // B A
+                                            {t.contact.input}
                                         </span>
                                     </div>
                                 </div>

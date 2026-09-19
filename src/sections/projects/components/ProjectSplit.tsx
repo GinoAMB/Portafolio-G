@@ -2,23 +2,32 @@ import {
   FaGithub,
   FaExternalLinkAlt,
 } from "react-icons/fa";
+
 import type { Project } from "../projects.types";
+
+import { useLanguage } from "../../../context/LanguageContext";
+import { translations } from "../../../locales";
 
 interface ProjectSplitProps {
   project: Project;
 }
 
 function ProjectSplit({ project }: ProjectSplitProps) {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <article className="group overflow-hidden rounded-lg border border-white/10 bg-[#151C2B] p-3 sm:p-5">
       {/* Contenido superior */}
       <div className="grid gap-8 p-5 sm:gap-10 sm:p-8 md:grid-cols-2 md:p-10">
+
         {/* Columna izquierda */}
         <div className="flex flex-col justify-center">
+
           {/* Número + Categoría */}
           <div className="flex flex-wrap items-center gap-3">
             <span className="text-xs font-medium uppercase tracking-wider text-emerald-400">
-              PROYECTO 02
+              {t.projects.labels.project02}
             </span>
 
             <span className="inline-flex rounded-md border border-violet-400/20 bg-violet-500/10 px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-violet-400 backdrop-blur-sm">
@@ -41,11 +50,10 @@ function ProjectSplit({ project }: ProjectSplitProps) {
             {project.technologies.map((technology, index) => (
               <span
                 key={technology}
-                className={`rounded-md border px-3 py-1.5 text-xs font-medium ${
-                  index === 0
+                className={`rounded-md border px-3 py-1.5 text-xs font-medium ${index === 0
                     ? "border-blue-400/20 bg-blue-500/10 text-blue-400"
                     : "border-emerald-400/20 bg-emerald-500/10 text-emerald-400"
-                }`}
+                  }`}
               >
                 {technology}
               </span>
@@ -55,9 +63,10 @@ function ProjectSplit({ project }: ProjectSplitProps) {
 
         {/* Columna derecha */}
         <div className="flex flex-col justify-center border-t border-white/10 pt-8 md:border-l md:border-t-0 md:pl-10 md:pt-0">
+
           {/* Título */}
           <h4 className="text-xs font-medium uppercase tracking-wider text-gray-400">
-            Aspectos arquitectónicos
+            {t.projects.labels.architecturalAspects}
           </h4>
 
           {/* Capacidades */}
@@ -68,6 +77,7 @@ function ProjectSplit({ project }: ProjectSplitProps) {
                 className="flex items-start gap-2 text-sm text-gray-400"
               >
                 <span className="mt-1.5 h-1 w-1 shrink-0 rounded-full bg-gray-400" />
+
                 <span>{capability}</span>
               </div>
             ))}
@@ -83,7 +93,9 @@ function ProjectSplit({ project }: ProjectSplitProps) {
                 className="inline-flex items-center gap-2 rounded-md border border-white/10 bg-white/5 px-4 py-2.5 text-sm font-medium text-gray-300 transition hover:border-violet-400/30 hover:bg-violet-500/10 hover:text-violet-400"
               >
                 <FaGithub />
-                Ver repositorio
+
+                {t.projects.labels.viewRepository}
+
                 <FaExternalLinkAlt className="text-xs" />
               </a>
             </div>
@@ -96,7 +108,7 @@ function ProjectSplit({ project }: ProjectSplitProps) {
         <img
           src={project.image}
           alt={project.title}
-          className="h-full w-full object-contain rounded-xl transition duration-500 group-hover:scale-[1.03]"
+          className="h-full w-full rounded-xl object-contain transition duration-500 group-hover:scale-[1.03]"
         />
       </div>
     </article>

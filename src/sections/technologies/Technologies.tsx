@@ -1,19 +1,28 @@
-import { technologyCategories } from "./technologies.data";
+import { getTechnologyCategories } from "./technologies.data";
+
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../locales";
 
 function Technologies() {
+    const { language } = useLanguage();
+    const t = translations[language];
+
+    const technologyCategories = getTechnologyCategories(t);
+
     return (
         <section id="stack" className="bg-gray-50 py-10">
             <div className="mx-auto max-w-7xl px-4 sm:px-6">
+
                 {/* Section label */}
                 <div className="flex items-center gap-3 py-8 sm:gap-5 sm:py-10">
                     <span className="whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.12em] text-blue-600 sm:text-xs sm:tracking-[0.2em] lg:text-sm">
-                        04. Herramientas & conocimientos
+                        {t.technologies.sectionNumber} {t.technologies.sectionLabel}
                     </span>
 
                     <span className="h-px flex-1 bg-gray-200" />
 
                     <span className="whitespace-nowrap text-[9px] font-semibold uppercase tracking-[0.12em] text-gray-400 sm:text-xs sm:tracking-[0.2em] lg:text-sm">
-                        Stack
+                        {t.technologies.stack}
                     </span>
                 </div>
 
@@ -21,14 +30,13 @@ function Technologies() {
                 <div className="grid gap-6 md:grid-cols-2 md:items-end md:gap-8">
                     <div>
                         <h2 className="max-w-xl font-syne text-2xl font-extrabold leading-[1.05] tracking-tight text-black sm:text-4xl lg:text-4xl">
-                            Tecnologías organizadas por especialidad.
+                            {t.technologies.title}
                         </h2>
                     </div>
 
                     <div className="min-w-0 md:justify-self-end md:max-w-xl">
                         <p className="break-words text-base leading-7 text-gray-400 sm:text-lg md:text-right">
-                            Tecnologías y herramientas que utilizo para desarrollar
-                            aplicaciones web modernas, escalables y mantenibles.
+                            {t.technologies.description}
                         </p>
                     </div>
                 </div>
@@ -64,7 +72,7 @@ function Technologies() {
 
                 <div className="mt-6 flex justify-end">
                     <span className="font-mono text-[10px] tracking-widest text-gray-300">
-                        INPUT // ← →
+                        {t.technologies.input}
                     </span>
                 </div>
             </div>

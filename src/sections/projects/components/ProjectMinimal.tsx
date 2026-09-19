@@ -5,20 +5,28 @@ import {
 
 import type { Project } from "../projects.types";
 
+import { useLanguage } from "../../../context/LanguageContext";
+import { translations } from "../../../locales";
+
 interface ProjectMinimalProps {
   project: Project;
 }
 
 function ProjectMinimal({ project }: ProjectMinimalProps) {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <article className="group overflow-hidden rounded-lg border border-white/10 bg-[#151C2B] p-3 sm:p-5">
       <div className="grid items-center gap-10 md:grid-cols-2 lg:gap-16">
+
         {/* Contenido */}
         <div className="order-2 md:order-1">
+
           {/* Categoría */}
           <div className="flex items-center gap-3">
             <span className="text-xs font-medium uppercase tracking-wider text-emerald-400">
-              PROYECTO 04
+              {t.projects.labels.project04}
             </span>
 
             <span className="inline-flex rounded-md border border-blue-400/20 bg-blue-500/10 px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-blue-500 backdrop-blur-sm">
@@ -76,18 +84,19 @@ function ProjectMinimal({ project }: ProjectMinimalProps) {
                 href={repository}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 rounded-lg border px-6 py-2 text-sm font-medium transition ${project.github!.length > 1 && index === 0
+                className={`inline-flex items-center gap-2 rounded-lg border px-6 py-2 text-sm font-medium transition ${
+                  project.github!.length > 1 && index === 0
                     ? "border-blue-500 bg-blue-500 text-white hover:bg-blue-600"
                     : "border-gray-600 bg-gray-700 text-gray-200 hover:bg-gray-600"
-                  }`}
+                }`}
               >
                 <FaGithub />
 
                 {project.github!.length > 1
                   ? index === 0
-                    ? "Backend"
-                    : "Frontend"
-                  : "GitHub"}
+                    ? t.projects.labels.backend
+                    : t.projects.labels.frontend
+                  : t.projects.labels.github}
               </a>
             ))}
 
@@ -99,18 +108,18 @@ function ProjectMinimal({ project }: ProjectMinimalProps) {
                 className="inline-flex items-center gap-2 rounded-lg bg-blue-600 px-4 py-2 text-sm font-medium text-white transition hover:bg-blue-500"
               >
                 <FaExternalLinkAlt />
-                Demo
+                {t.projects.labels.demo}
               </a>
             )}
           </div>
         </div>
 
         {/* Imagen */}
-        <div className="order-1 overflow-hidden rounded-xl md:order-2 p-2">
+        <div className="order-1 overflow-hidden rounded-xl p-2 md:order-2">
           <img
             src={project.image}
             alt={project.title}
-            className="h-full w-full object-contain rounded-lg transition duration-500 group-hover:scale-[1.02]"
+            className="h-full w-full rounded-lg object-contain transition duration-500 group-hover:scale-[1.02]"
           />
         </div>
       </div>

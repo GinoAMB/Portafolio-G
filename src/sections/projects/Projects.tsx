@@ -1,11 +1,18 @@
 import GridBackground from "../../components/ui/GridBackground";
-import { projects } from "./projects.data";
+import { getProjects } from "./projects.data";
 import ProjectFeatured from "./components/ProjectFeatured";
 import ProjectSplit from "./components/ProjectSplit";
 import ProjectReverse from "./components/ProjectReverse";
 import ProjectMinimal from "./components/ProjectMinimal";
+import { useLanguage } from "../../context/LanguageContext";
+import { translations } from "../../locales";
 
 function Projects() {
+  const { language } = useLanguage();
+  const t = translations[language];
+
+  const projects = getProjects(t);
+
   const renderProject = (project: (typeof projects)[number]) => {
     switch (project.variant) {
       case "featured":
@@ -38,18 +45,17 @@ function Projects() {
         <div className="mb-12 grid min-w-0 gap-6 sm:mb-14 md:mb-16 md:grid-cols-[1.2fr_0.8fr] md:items-end">
           <div className="min-w-0">
             <span className="block max-w-full text-sm font-medium uppercase tracking-wider text-green-400">
-      // 03. CASE STUDIES
+              {t.projects.sectionNumber} {t.projects.sectionLabel}
             </span>
 
             <h2 className="mt-3 break-words font-syne text-2xl font-extrabold uppercase leading-[1.05] tracking-tight text-white sm:text-4xl lg:text-5xl">
-              Proyectos seleccionados
+              {t.projects.title}
             </h2>
           </div>
 
           <div className="min-w-0 md:justify-self-end md:max-w-md">
             <p className="break-words text-lg leading-7 text-gray-400 md:text-right">
-              Una selección de aplicaciones y soluciones que he desarrollado
-              utilizando diferentes tecnologías y arquitecturas.
+              {t.projects.description}
             </p>
           </div>
         </div>
@@ -61,7 +67,7 @@ function Projects() {
 
         <div className="flex justify-end border-t border-white/5 pt-4">
           <span className="font-mono text-[10px] tracking-widest text-white/10">
-            INPUT // ← →
+            {t.projects.input}
           </span>
         </div>
       </div>

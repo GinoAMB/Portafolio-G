@@ -5,20 +5,28 @@ import {
 
 import type { Project } from "../projects.types";
 
+import { useLanguage } from "../../../context/LanguageContext";
+import { translations } from "../../../locales";
+
 interface ProjectFeaturedProps {
   project: Project;
 }
 
 function ProjectFeatured({ project }: ProjectFeaturedProps) {
+  const { language } = useLanguage();
+  const t = translations[language];
+
   return (
     <article className="group overflow-hidden bg-transparent">
       <div className="grid items-center gap-10 md:grid-cols-2 lg:gap-16">
+
         {/* Contenido */}
         <div className="order-2 md:order-1">
+
           {/* Categoría */}
           <div className="flex items-center gap-3">
             <span className="text-xs font-medium uppercase tracking-wider text-emerald-400">
-              PROYECTO 01 // PRINCIPAL
+              {t.projects.labels.featuredProject}
             </span>
 
             <span className="inline-flex rounded-md border border-blue-400/20 bg-blue-500/10 px-3 py-1.5 text-xs font-medium uppercase tracking-wider text-blue-500 backdrop-blur-sm">
@@ -39,11 +47,11 @@ function ProjectFeatured({ project }: ProjectFeaturedProps) {
           {/* Capacidades */}
           {project.capabilities && project.capabilities.length > 0 && (
             <div className="mt-6">
-              <h4 className="text-sm uppercase tracking-wider text-gray-400 font-semibold">
-                CAPACIDADES DESTACADAS:
+              <h4 className="text-sm font-semibold uppercase tracking-wider text-gray-400">
+                {t.projects.labels.highlightedCapabilities}
               </h4>
 
-              <ul className="mt-3 grid grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2 list-disc list-inside">
+              <ul className="mt-3 grid list-disc list-inside grid-cols-1 gap-x-6 gap-y-2 sm:grid-cols-2">
                 {project.capabilities.map((capability) => (
                   <li
                     key={capability}
@@ -76,17 +84,19 @@ function ProjectFeatured({ project }: ProjectFeaturedProps) {
                 href={repository}
                 target="_blank"
                 rel="noopener noreferrer"
-                className={`inline-flex items-center gap-2 rounded-lg border px-10 py-2 text-sm font-medium transition ${project.github!.length > 1 && index === 0
+                className={`inline-flex items-center gap-2 rounded-lg border px-10 py-2 text-sm font-medium transition ${
+                  project.github!.length > 1 && index === 0
                     ? "border-blue-500 bg-blue-500 text-white hover:bg-blue-600"
                     : "border-gray-600 bg-gray-700 text-gray-200 hover:bg-gray-600"
-                  }`}
+                }`}
               >
                 <FaGithub />
+
                 {project.github!.length > 1
                   ? index === 0
-                    ? "Backend"
-                    : "Frontend"
-                  : "GitHub"}
+                    ? t.projects.labels.backend
+                    : t.projects.labels.frontend
+                  : t.projects.labels.github}
               </a>
             ))}
 
@@ -98,11 +108,10 @@ function ProjectFeatured({ project }: ProjectFeaturedProps) {
                 className="inline-flex items-center gap-2 rounded-lg bg-emerald-500 px-4 py-2 text-sm font-medium text-white transition hover:bg-emerald-600"
               >
                 <FaExternalLinkAlt />
-                Demo
+                {t.projects.labels.demo}
               </a>
             )}
           </div>
-
         </div>
 
         {/* Imagen */}

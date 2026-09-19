@@ -1,12 +1,11 @@
 import type { Project } from "./projects.types";
 
-export const projects: Project[] = [
+export const getProjects = (t: any): Project[] => [
   {
     id: 1,
-    title: "Sistema de Matrícula Escolar",
-    category: "Full Stack · 2026",
-    description:
-      "Sistema Full Stack para la gestión integral del proceso de matrícula escolar, usuarios, estudiantes, periodos académicos y catálogos administrativos. Incluye un backend REST con Java y Spring Boot y un frontend desarrollado con React y TypeScript.",
+    title: t.projects.items.matricula.title,
+    category: t.projects.items.matricula.category,
+    description: t.projects.items.matricula.description,
     technologies: [
       "Java",
       "Spring Boot",
@@ -20,15 +19,7 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "Swagger/OpenAPI",
     ],
-    capabilities: [
-      "15 Repositorios JPA",
-      "Persistencia JPA / Hibernate",
-      "Operaciones CRUD Múltiples",
-      "APIs REST Completas",
-      "Relaciones entre Entidades",
-      "Componentes React UI",
-      "Documentación viva con Swagger/OpenAPI",
-    ],
+    capabilities: t.projects.items.matricula.capabilities,
     github: [
       "https://github.com/GinoAMB/MatriculaBackend",
       "https://github.com/GinoAMB/MatriculaFrontend",
@@ -39,24 +30,14 @@ export const projects: Project[] = [
 
   {
     id: 2,
-    title: "Sistema de Gestión de Inventario",
-    category: "Backend · 2026",
-    description:
-      "API REST para la gestión de inventario, almacenes, materiales, movimientos de entrada y salida, usuarios y roles. Implementa autenticación y autorización con Spring Security y JWT, junto con Arquitectura Hexagonal.",
+    title: t.projects.items.inventario.title,
+    category: t.projects.items.inventario.category,
+    description: t.projects.items.inventario.description,
     technologies: [
       "Spring Security + JWT",
       "Arquitectura Hexagonal (Ports & Adapters)",
     ],
-    capabilities: [
-      "Control de Roles (RBAC)",
-      "Control estricto de stock",
-      "Manejo de excepciones y errores",
-      "Recuperación por Tokens",
-      "DTOs & MapStruct",
-      "Validación de negocio",
-      "Cloudinary Asset Upload",
-      "Swagger/OpenAPI 3",
-    ],
+    capabilities: t.projects.items.inventario.capabilities,
     github: ["https://github.com/GinoAMB/Proyecto_Buggati"],
     image: "/projects/inventario.webp",
     variant: "split",
@@ -64,10 +45,9 @@ export const projects: Project[] = [
 
   {
     id: 3,
-    title: "DeliveryNoche",
-    category: "Landing Frontend · 2026",
-    description:
-      "Landing page responsive para un servicio de delivery, desarrollada con React y TypeScript. Incluye navegación, hero, cobertura, especialidades, testimonios, llamadas a la acción y contacto directo mediante WhatsApp.",
+    title: t.projects.items.deliveryNoche.title,
+    category: t.projects.items.deliveryNoche.category,
+    description: t.projects.items.deliveryNoche.description,
     technologies: [
       "React",
       "TypeScript",
@@ -75,11 +55,7 @@ export const projects: Project[] = [
       "Tailwind CSS",
       "Vercel Deploy",
     ],
-    capabilities: [
-      "Componentes modulares reutilizables & diseño responsive",
-      "Hero de alta conversión, Cobertura, Especialidades y Testimonios",
-      "Integración directa con WhatsApp para pedidos rapidos",
-    ],
+    capabilities: t.projects.items.deliveryNoche.capabilities,
     github: ["https://github.com/devlab921-prog/Midnight_Snacks"],
     demo: "https://midnight-snacks.vercel.app/",
     image: "/projects/delivery-noche.webp",
@@ -88,22 +64,16 @@ export const projects: Project[] = [
 
   {
     id: 4,
-    title: "FlowSync",
-    category: "Landing Frontend · 2026",
-    description:
-      "Landing page para una plataforma de productividad y gestión de procesos, desarrollada con React y TypeScript. Presenta funcionalidades, precios, testimonios, FAQ y navegación mediante componentes reutilizables.",
+    title: t.projects.items.flowSync.title,
+    category: t.projects.items.flowSync.category,
+    description: t.projects.items.flowSync.description,
     technologies: [
       "React",
       "TypeScript",
       "Vite",
       "Tailwind CSS",
     ],
-    capabilities: [
-      "Diseño responsive adaptado a distintos dispositivos",
-      "Componentes reutilizables y estructura modular",
-      "Secciones de funcionalidades, precios, testimonios y FAQ",
-      "Navegación fluida y experiencia de usuario intuitiva",
-    ],
+    capabilities: t.projects.items.flowSync.capabilities,
     github: ["https://github.com/devlab921-prog/Flowsync"],
     demo: "https://flowsync-pearl.vercel.app/",
     image: "/projects/flowsync.webp",

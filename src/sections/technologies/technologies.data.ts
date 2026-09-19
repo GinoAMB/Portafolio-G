@@ -1,9 +1,9 @@
 import type { TechnologyCategory } from "./technologies.types";
 
-export const technologyCategories: TechnologyCategory[] = [
+export const getTechnologyCategories = (t: any): TechnologyCategory[] => [
   {
     id: 1,
-    title: "FRONTEND",
+    title: t.technologies.categories.frontend,
     technologies: [
       { name: "React" },
       { name: "TypeScript" },
@@ -15,7 +15,7 @@ export const technologyCategories: TechnologyCategory[] = [
   },
   {
     id: 2,
-    title: "BACKEND",
+    title: t.technologies.categories.backend,
     technologies: [
       { name: "Java" },
       { name: "Spring Boot" },
@@ -25,7 +25,7 @@ export const technologyCategories: TechnologyCategory[] = [
   },
   {
     id: 3,
-    title: "BASES DE DATOS",
+    title: t.technologies.categories.databases,
     technologies: [
       { name: "MySQL" },
       { name: "PostgreSQL" },
@@ -34,7 +34,7 @@ export const technologyCategories: TechnologyCategory[] = [
   },
   {
     id: 4,
-    title: "PERSISTENCIA",
+    title: t.technologies.categories.persistence,
     technologies: [
       { name: "Spring Data JPA" },
       { name: "Hibernate" },
@@ -43,7 +43,7 @@ export const technologyCategories: TechnologyCategory[] = [
   },
   {
     id: 5,
-    title: "HERRAMIENTAS",
+    title: t.technologies.categories.tools,
     technologies: [
       { name: "Git" },
       { name: "GitHub" },
@@ -58,7 +58,7 @@ export const technologyCategories: TechnologyCategory[] = [
   },
   {
     id: 6,
-    title: "METODOLOGÍAS",
+    title: t.technologies.categories.methodologies,
     technologies: [
       { name: "Scrum" },
       { name: "Desarrollo Ágil" },
@@ -67,9 +67,9 @@ export const technologyCategories: TechnologyCategory[] = [
   },
   {
     id: 7,
-    title: "ARQUITECTURA",
+    title: t.technologies.categories.architecture,
     technologies: [
-      { name: "Hexagonal(Ports & Adapters)" },
+      { name: "Hexagonal (Ports & Adapters)" },
       { name: "MVC" },
       { name: "DAO" },
       { name: "Arquitectura por capas" },
@@ -77,11 +77,11 @@ export const technologyCategories: TechnologyCategory[] = [
   },
   {
     id: 8,
-    title: "APIS",
+    title: t.technologies.categories.apis,
     technologies: [
-      { name: "RESTfull APIs" },
+      { name: "RESTful APIs" },
       { name: "Axios" },
       { name: "Swagger / OpenAPI" },
     ],
-  }
+  },
 ];

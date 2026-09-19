@@ -1,44 +1,49 @@
 import type { Education, Certification, SoftSkill } from "./education.types";
 
-export const education: Education[] = [
+export const getEducation = (t: any): Education[] => [
   {
-    title: "Ingeniería de Sistemas e Informática",
-    institution: "Universidad Tecnológica del Perú - UTP  ",
-    period: "08/2026",
-    description:
-      "Enfoque riguroso en ingeniería de software, algoritmos, bases de datos relacionales, gestión de proyectos y arquitecturas distribuidas.",
+    title: t.education.items.degree.title,
+    institution: t.education.items.degree.institution,
+    period: t.education.items.degree.period,
+    description: t.education.items.degree.description,
   },
 ];
 
-export const softSkills: SoftSkill[] = [
-  { name: "Trabajo en equipo" },
-  { name: "Resolución de problemas" },
-  { name: "Adaptabilidad" },
-]
+export const getCertifications = (t: any): Certification[] => [
+  {
+    title: t.education.certifications.javaSpring.title,
+    institution: t.education.certifications.javaSpring.institution,
+    year: t.education.certifications.javaSpring.year,
+    pdf: "/certificates/java-spring.pdf",
+  },
+  {
+    title: t.education.certifications.scrum.title,
+    institution: t.education.certifications.scrum.institution,
+    year: t.education.certifications.scrum.year,
+    pdf: "/certificates/scrum.pdf",
+  },
+  {
+    title: t.education.certifications.java.title,
+    institution: t.education.certifications.java.institution,
+    year: t.education.certifications.java.year,
+    pdf: "/certificates/java.pdf",
+  },
+  {
+    title: t.education.certifications.terminal.title,
+    institution: t.education.certifications.terminal.institution,
+    year: t.education.certifications.terminal.year,
+    pdf: "/certificates/terminal.pdf",
+  },
+];
 
-export const certifications: Certification[] = [
+export const getSoftSkills = (t: any): SoftSkill[] => [
   {
-    title: "Curso de Java Spring",
-    institution: "Platzi",
-    year: "2025",
-    pdf: "/certifications/diploma-java-spring-boot.pdf",
+    name: t.education.softSkills.teamwork,
   },
   {
-    title: "Scrum Fundamentals Certified (SFC™)",
-    institution: "SCRUMstudy",
-    year: "2025",
-    pdf: "/certifications/ScrumFundamentalsCertified-GinoAndersonMorenoBejarano-1130858.pdf",
+    name: t.education.softSkills.problemSolving,
   },
   {
-    title: "Curso de Java",
-    institution: "Platzi",
-    year: "2025",
-    pdf: "/certifications/diploma-java.pdf",
-  },
-  {
-    title: "Introducción a la Terminal y Líneas de Comando",
-    institution: "Platzi",
-    year: "2025",
-    pdf: "/certifications/diploma-terminal.pdf",
+    name: t.education.softSkills.adaptability,
   },
 ];
